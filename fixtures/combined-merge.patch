@@ -1,0 +1,12 @@
+diff --cc conflict.txt
+index 232bca1,e25bcc6..ca245ce
+--- a/conflict.txt
++++ b/conflict.txt
+@@@ -1,5 -1,5 +1,5 @@@
+  alpha
+- BETA-from-master
+ -BETA-from-feature
+++BETA-resolved-by-hand
+  gamma
+  delta
+  epsilon

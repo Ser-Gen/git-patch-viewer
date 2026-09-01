@@ -1,0 +1,15 @@
+{
+	"name": "git-patch-viewer",
+	"version": "1.0.0",
+	"private": true,
+	"description": "A static browser viewer for git patch files",
+	"scripts": {
+		"serve": "python3 -m http.server 8777 --bind 127.0.0.1",
+		"test": "node tests/run.js",
+		"test:browser": "node tests/browser.js",
+		"test:all": "node tests/run.js && node tests/browser.js"
+	},
+	"devDependencies": {
+		"playwright-core": "^1.49.0"
+	}
+}

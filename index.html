@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patch Viewer</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='14'%3E%F0%9F%A9%B9%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<div id="topbar">
+	<span class="brand"></span>
+	<span class="patch-name" id="patch-name"></span>
+	<span id="summary"></span>
+	<span class="spacer"></span>
+	<span id="preamble"></span>
+	<button id="open-btn">Open patch…</button>
+</div>
+
+<div id="banner"><span id="banner-text"></span><button class="close" id="banner-close">Dismiss</button></div>
+
+<div id="main">
+	<aside id="sidebar">
+		<div id="sidebar-tools">
+			<div class="line">
+				<button id="tree-btn" class="on">Tree</button>
+				<button id="flat-btn">Flat</button>
+				<span style="flex:1"></span>
+				<span id="viewed-progress"></span>
+			</div>
+			<div class="line">
+				<input id="filter" type="search" placeholder="Filter paths…  (/)" autocomplete="off" spellcheck="false">
+			</div>
+			<div class="line">
+				<button id="mark-all">Mark all viewed</button>
+				<button id="clear-all">Clear viewed</button>
+			</div>
+		</div>
+		<div id="filelist"></div>
+	</aside>
+
+	<div id="resizer"></div>
+
+	<section id="content">
+		<div id="file-header">
+			<span class="path" id="fh-path"></span>
+			<span class="meta" id="fh-meta"></span>
+			<span class="spacer"></span>
+			<span id="fh-actions" hidden>
+				<button id="btn-side" class="on">Side by side</button>
+				<button id="btn-wrap">Wrap</button>
+				<button id="btn-copy-path">Copy path</button>
+				<button id="btn-copy-diff">Copy raw diff</button>
+				<label><input type="checkbox" id="fh-viewed"></label>
+			</span>
+		</div>
+		<div id="viewport">
+			<div id="editor"></div>
+			<div id="binary" hidden></div>
+		</div>
+	</section>
+
+	<div id="dropzone">
+		<div class="big" id="dz-title">Drop a .patch file here</div>
+		<div class="sub" id="dz-sub">or click to choose one</div>
+		<div class="keys-title" id="dz-keys-title"></div>
+		<div class="keys" id="dz-keys"></div>
+	</div>
+</div>
+
+<div id="drag-overlay"><span id="drag-text">Release to open the patch</span></div>
+<input type="file" id="file-input" hidden accept=".patch,.diff,.txt,text/plain">
+
+<script src="js/util.js"></script>
+<script src="js/strings.js"></script>
+<script src="js/parse/base85.js"></script>
+<script src="js/parse/delta.js"></script>
+<script src="js/parse/patch.js"></script>
+<script src="js/parse/hunks.js"></script>
+<script src="js/parse/binary.js"></script>
+<script src="js/ui/shell.js"></script>
+<script src="js/ui/sidebar.js"></script>
+<script src="js/ui/diffview.js"></script>
+<script src="js/ui/binaryview.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
